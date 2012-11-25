@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(:version => 20121119200656) do
 
   create_table "products", :force => true do |t|
-    t.string    "title"
-    t.text      "description", :limit => 2147483647
-    t.string    "image_url"
-    t.decimal   "price",                             :precision => 8, :scale => 2
-    t.timestamp "created_at",  :limit => 23,                                       :null => false
-    t.timestamp "updated_at",  :limit => 23,                                       :null => false
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_url"
+    t.decimal  "price",       :precision => 8, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
 end
