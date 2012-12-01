@@ -4,11 +4,31 @@ gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Development
+group :development do
+  if defined?(JRUBY_VERSION)
+	gem 'activerecord-jdbcsqlite3-adapter'
+	# gem 'activerecord-jdbch2-adapter'
+	gem 'jruby-openssl'
+  else
+    gem 'sqlite3'
+  end
+  # gem 'ruby-debug'
+end
 
-gem 'activerecord-jdbcsqlite3-adapter'
-# gem 'activerecord-jdbch2-adapter'
+# Test
+group :test do
+  if defined?(JRUBY_VERSION)
+    gem 'activerecord-jdbc-adapter', :require => false
+    gem 'jdbc-sqlite3', :require => false
+  else
+    gem 'sqlite3'
+  end
+end
 
-gem 'jruby-openssl'
+# Production
+group :production do
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
